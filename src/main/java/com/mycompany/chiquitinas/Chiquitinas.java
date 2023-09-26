@@ -35,7 +35,7 @@ public class Chiquitinas {
             
             Producto producto3 = new Remolacha();
             producto3.setId(1);
-            producto3.setNombre("Remolachaaa");
+            producto3.setNombre("Remolacha");
             producto3.setPrecio(540.00);
             
             Producto producto4 = new Chayote();
