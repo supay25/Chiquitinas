@@ -21,6 +21,13 @@ public class Cliente {
         this.correo = correo;
     }
 
+    public Cliente(String nombre, String direccion, String correo) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.correo = correo;
+    }
+
+    
     public int getId() {
         return id;
     }

@@ -14,9 +14,9 @@ import java.sql.SQLException;
  */
 public class Coneccion {
     private Connection conectar = null;
-    private String url = "jdbc:mysql://localhost:3306/coevaluation?serverTimezone=UTC&zeroDateTimeBehavior=CONVERT_TO_NULL"; //Se busca el URL en el server
+    private String url = "jdbc:mysql://localhost:3306/chiquitinas?serverTimezone=UTC&zeroDateTimeBehavior=CONVERT_TO_NULL"; //Se busca el URL en el server
     private String usuario = "root"; //El usuario del MySQL
-    private String password = "JOSMANU18"; // La contraseña del MySQL
+    private String password = "oirflame"; // La contraseña del MySQL
     
     //Constructor
 

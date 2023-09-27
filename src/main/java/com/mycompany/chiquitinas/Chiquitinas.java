@@ -4,6 +4,7 @@
 
 package com.mycompany.chiquitinas;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 //Intergrantes 
@@ -11,8 +12,15 @@ import java.util.Date;
 //Jose Manuel Cardozo Quintero
 public class Chiquitinas {
 
-    public static void main(String[] args) {
-       Cliente cliente = new PersonaFisica();
+    public static void main(String[] args) throws SQLException {
+       
+       
+        
+            
+        ConeccionCliente c = new ConeccionCliente();
+         c.insertar(new Cliente("Valeria", "Heredia" ,"vale@gmail.com"));
+        
+        /*Cliente cliente = new PersonaFisica();
             cliente.setId(1);
             cliente.setNombre("Bernalito");
             cliente.setDireccion("Cartago");
@@ -53,7 +61,10 @@ public class Chiquitinas {
             orden.agregarItem(item4);
             
             
-            System.out.println(orden);
+            
+            
+            
+            System.out.println(orden);*/
             
             
             
