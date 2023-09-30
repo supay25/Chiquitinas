@@ -18,8 +18,39 @@ public class Chiquitinas {
         
             
         ConeccionCliente c = new ConeccionCliente();
-         c.insertar(new Cliente("Valeria", "Heredia" ,"vale@gmail.com"));
+        ConeccionProducto p = new ConeccionProducto();
+        coneccionOrden o = new coneccionOrden();
+        Cliente cliente = new PersonaFisica(); 
+        coneccionItem i = new coneccionItem();
         
+ 
+        Cliente cliente1 = new PersonaFisica();     
+        cliente.setNombre("Josee");
+        cliente.setDireccion("San Jose");
+        cliente.setCorreo("jmcardozo.q@gmail.com"); 
+       // c.insertar(cliente);
+        
+         Orden orden = new Orden();
+         orden.setCliente(cliente);
+         orden.setFecha("2023-03-02");       
+         //o.insertar(orden,cliente);
+         
+         Producto producto = new Remolacha();
+         
+        Item item = new Item(1, 5, producto);
+        Item item2 = new Item(2, 4, producto);
+        Item item3 = new Item(3, 6, producto);
+        Item item4 = new Item(4, 3, producto);
+        //i.insertar(producto, item);
+       // i.insertar(producto, item2);
+       // i.insertar(producto, item3);
+       // i.insertar(producto, item4);
+        
+        o.mostrarOrden();
+        o.mostrarCliente();
+        o.mostrarFecha();
+        o.mostrarProducto();
+           
         /*Cliente cliente = new PersonaFisica();
             cliente.setId(1);
             cliente.setNombre("Bernalito");
@@ -31,10 +62,7 @@ public class Chiquitinas {
             orden.setFecha(new Date());
             orden.setCliente(cliente);
             
-            Producto producto = new Remolacha();
-            producto.setId(1);
-            producto.setNombre("Remolacha");
-            producto.setPrecio(100.00);
+            
             
             Producto producto2 = new Chayote();
             producto2.setId(1);
@@ -51,14 +79,7 @@ public class Chiquitinas {
             producto4.setNombre("Chayote");
             producto4.setPrecio(234.00);
             
-            Item item = new Item(1, 5, producto);
-            Item item2 = new Item(2, 4, producto2);
-            Item item3 = new Item(3, 6, producto3);
-            Item item4 = new Item(4, 3, producto4);
-            orden.agregarItem(item);
-            orden.agregarItem(item2);
-            orden.agregarItem(item3);
-            orden.agregarItem(item4);
+            
             
             
             

@@ -18,11 +18,11 @@ public class ConeccionCliente extends Coneccion {
         List<Cliente> listaRetorno = new ArrayList<Cliente>();
         
         try {
-            PreparedStatement stmt = super.getConexion().prepareStatement("SELECT id, nombre, direccion, correo FROM cliente ORDER BY id");
+            PreparedStatement stmt = super.getConexion().prepareStatement("SELECT ID_Cliente, nombre, direccion, correo FROM cliente ORDER BY id");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                int id = rs.getInt("id");
+                int id = rs.getInt("ID_Cliente");
                 String nombre = rs.getString("nombre");
                 String apellido = rs.getString("apellido");
                 String direccion = rs.getString("direccion");
@@ -45,12 +45,12 @@ public class ConeccionCliente extends Coneccion {
         Cliente c = null;
         
         try {
-            PreparedStatement stmt = super.getConexion().prepareStatement("SELECT id, nombre, direccion, correo FROM cliente WHERE id=? ORDER BY id");
+            PreparedStatement stmt = super.getConexion().prepareStatement("SELECT ID_Cliente, Nombre, Direccion, Correo FROM cliente WHERE id=? ORDER BY id");
             stmt.setInt(1, idParam);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                int id = rs.getInt("id");
+                int id = rs.getInt("ID_Cliente");
                 String nombre = rs.getString("nombre");
                 String direccion = rs.getString("direccion");
                 String correo = rs.getString("correo");

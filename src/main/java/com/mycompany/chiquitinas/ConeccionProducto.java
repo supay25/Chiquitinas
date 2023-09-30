@@ -40,10 +40,11 @@ public class ConeccionProducto extends Coneccion{
     
      public void insertar(Producto p) {
         try {
-            PreparedStatement stmt = super.getConexion().prepareStatement("INSERT INTO producto(nombre,precio) VALUES (?,?)");
+            PreparedStatement stmt = super.getConexion().prepareStatement("INSERT INTO producto(Nombre,Precio) VALUES (?,?)");
 
             stmt.setString(1, p.getNombre());
             stmt.setDouble(2, p.getPrecio());
+            stmt.execute();
         
             stmt.execute();
 

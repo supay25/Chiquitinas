@@ -10,13 +10,13 @@ package com.mycompany.chiquitinas;
  */
 public class Item {
     private int consecutivo;
-    private double cantidad;
+    private int cantidad;
     private Producto producto;
 
     public Item() {
     }
 
-    public Item(int consecutivo, double cantidad, Producto producto) {
+    public Item(int consecutivo, int cantidad, Producto producto) {
         this.consecutivo = consecutivo;
         this.cantidad = cantidad;
         this.producto = producto;
@@ -34,7 +34,7 @@ public class Item {
         return cantidad;
     }
 
-    public void setCantidad(double cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 

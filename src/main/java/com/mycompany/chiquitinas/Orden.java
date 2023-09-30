@@ -4,24 +4,29 @@
  */
 package com.mycompany.chiquitinas;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
+
 
 /**
  *
  * @author luisd
  */
 public class Orden extends Cliente{
-     private int id;
-    private Date fecha;
+    private int id;
+    private String fecha;
     private Cliente cliente;
+    private double sumaTotal;
     private List<Item> listaItems = new ArrayList<Item>();
+    
+    
 
     public Orden() {
     }
 
-    public Orden(int id, Date fecha, Cliente cliente) {
+    public Orden(int id, String fecha, Cliente cliente) {
         this.id = id;
         this.fecha = fecha;
         this.cliente = cliente;
@@ -35,12 +40,21 @@ public class Orden extends Cliente{
         this.id = id;
     }
 
-    public Date getFecha() {
+    public double getSumaTotal() {
+        return sumaTotal;
+    }
+
+    public void setSumaTotal(double sumaTotal) {
+        this.sumaTotal = sumaTotal;
+    }
+
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
+        
     }
 
     public Cliente getCliente() {
@@ -87,7 +101,7 @@ public class Orden extends Cliente{
             
             totales.add(total);
         }
-        double sumaTotal = 0.0;
+        sumaTotal = 0.0;
         for (Double totall : totales) {
             sumaTotal += totall;
         }
