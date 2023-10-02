@@ -57,41 +57,50 @@ public class coneccionOrden  extends Coneccion{
     }   
     public void mostrarOrden(){
         try {
-            //PreparedStatement stmt = super.getConexion().prepareStatement("SELECT Fecha FROM Orden where ID_Orden = 41");
-            //ResultSet rs = stmt.executeQuery();
+           
             PreparedStatement stmt1 = super.getConexion().prepareStatement("SELECT Cantidad,ID_Orden FROM detallesorden where ID_Orden = 41");
             ResultSet rs1 = stmt1.executeQuery();
             int Cantidad =0;
             int ID_Orden=0;        
-            /*
-            PreparedStatement stmt2 = super.getConexion().prepareStatement("SELECT Nombre, Correo FROM cliente where ID_Cliente = 23");
-            PreparedStatement stmt3 = super.getConexion().prepareStatement("SELECT Nombre FROM producto where Nombre = 'Remolacha'");
-            
-            
-            ResultSet rs2 = stmt2.executeQuery();
-            ResultSet rs3 = stmt3.executeQuery();*/
+          
 
             while (rs1.next()) {
-                //String fecha = rs1.getString("Fecha");
+                
                 Cantidad = rs1.getInt("Cantidad");
                 ID_Orden = rs1.getInt("ID_Orden");
                 System.out.println("Cantidad:" + Cantidad);
-            System.out.println("Numero de Orden" +ID_Orden);
-                /*
-                String Nombre = rs2.getString("Nombre");
-                String Correo = rs2.getString("Correo");
-                String nombreProducto = rs3.getString("Nombre");*/
-                //System.out.println(fecha);
-                
-     
+            
             }
             
-            rs1.close();          
+            
+            
+            
+            rs1.close();       
             stmt1.close();                 
-
+            
+          PreparedStatement stmt2 = super.getConexion().prepareStatement("SELECT Nombre FROM producto where id_producto = 1");
+            ResultSet rs2 = stmt2.executeQuery();
+          
+            
+            
+            while(rs2.next()){
+                
+                String  nombre = rs2.getString("nombre");
+                System.out.println("Nombre del Producto " +  nombre);
+               
+            }
+            
+            rs2.close();       
+            stmt2.close();   
+            
+            
+            
+            
+            
         } catch (SQLException ex) {
             System.out.println("Error al abrir Conexión: " + ex.getMessage());
         }
+        
     }
     public void mostrarFecha(){
         try {
@@ -113,28 +122,53 @@ public class coneccionOrden  extends Coneccion{
         }
         
     }
-    public void mostrarProducto(){
+    public int mostrarProducto(){
+        
+        
+        int totalF = 0;
         try {                   
             
             
-            PreparedStatement stmt3 = super.getConexion().prepareStatement("SELECT Nombre FROM producto where Nombre = 'Remolacha'");
+            PreparedStatement stmt3 = super.getConexion().prepareStatement("SELECT nombre, precio FROM producto where Nombre = 'Remolacha'");
             
             
             
             ResultSet rs3 = stmt3.executeQuery();
-
+            int precio = 0 ;
             while (rs3.next()) {
                 String nombre = rs3.getString("Nombre");
-                System.out.println("Producto" +nombre);
-     
+                
+                precio = rs3.getInt("Precio");
+                
             }
             
             rs3.close();          
-            stmt3.close();                 
+            stmt3.close();     
+
+
+            PreparedStatement stmt2 = super.getConexion().prepareStatement("SELECT cantidad FROM detallesorden where id_Producto =1");
+            
+            
+            ResultSet rs2 = stmt2.executeQuery();
+            int total = 0;
+            while(rs2.next()){
+                int cantidad = rs2.getInt("cantidad");
+                
+                total=cantidad + total;
+            }
+           rs2.close();          
+            stmt2.close();     
+            totalF = 0;
+            
+            totalF = total * precio;
+            
 
         } catch (SQLException ex) {
             System.out.println("Error al abrir Conexión: " + ex.getMessage());
         }
+        
+        return totalF;
+        
     }
     public void mostrarCliente(){
         try {                   
