@@ -49,7 +49,7 @@ public class Chiquitinas {
         o.mostrarOrden();
         o.mostrarCliente();
         o.mostrarFecha();
-        o.mostrarProducto();
+        System.out.print("Total a pagar: " + o.mostrarProducto());
            
         /*Cliente cliente = new PersonaFisica();
             cliente.setId(1);
