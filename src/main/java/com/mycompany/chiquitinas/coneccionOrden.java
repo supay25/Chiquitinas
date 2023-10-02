@@ -68,7 +68,7 @@ public class coneccionOrden  extends Coneccion{
                 
                 Cantidad = rs1.getInt("Cantidad");
                 ID_Orden = rs1.getInt("ID_Orden");
-                System.out.println("Cantidad:" + Cantidad);
+                System.out.println("Cantidad: " + Cantidad);
             
             }
             
@@ -86,7 +86,7 @@ public class coneccionOrden  extends Coneccion{
             while(rs2.next()){
                 
                 String  nombre = rs2.getString("nombre");
-                System.out.println("Nombre del Producto " +  nombre);
+                System.out.println("Nombre del Producto: " +  nombre);
                
             }
             
@@ -109,7 +109,7 @@ public class coneccionOrden  extends Coneccion{
 
             while (rs.next()) {
                 String fecha = rs.getString("Fecha");             
-                System.out.println("Fecha" +fecha);
+                System.out.println("Fecha: " +fecha);
                 
      
             }
@@ -139,6 +139,7 @@ public class coneccionOrden  extends Coneccion{
                 String nombre = rs3.getString("Nombre");
                 
                 precio = rs3.getInt("Precio");
+               
                 
             }
             
@@ -153,15 +154,16 @@ public class coneccionOrden  extends Coneccion{
             int total = 0;
             while(rs2.next()){
                 int cantidad = rs2.getInt("cantidad");
-                
+                System.out.println("Cantidad: " + cantidad);               
                 total=cantidad + total;
+               
             }
            rs2.close();          
             stmt2.close();     
             totalF = 0;
             
             totalF = total * precio;
-            
+           
 
         } catch (SQLException ex) {
             System.out.println("Error al abrir Conexión: " + ex.getMessage());
@@ -183,8 +185,8 @@ public class coneccionOrden  extends Coneccion{
             while (rs3.next()) {
                 String nombre = rs3.getString("Nombre");
                 String Correo = rs3.getString("Correo");
-                System.out.println("Nombre" +nombre);
-                System.out.println("Correo" +Correo);
+                System.out.println("Nombre: " +nombre);
+                System.out.println("Correo: " +Correo);
                 
      
             }
